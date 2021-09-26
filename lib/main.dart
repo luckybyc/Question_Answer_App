@@ -3,10 +3,12 @@ import 'package:flutter_day_one_app/result.dart';
 import 'quiz.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return _MyAppState();
@@ -37,6 +39,7 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
+    // ignore: avoid_print
     print(_questionIndex);
   }
 
@@ -46,7 +49,7 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text('QUIZ App'),
+          title: const Text('QUIZ App'),
         ),
         body: (_questionIndex < _questions.length)
             ? Quiz(
@@ -54,7 +57,7 @@ class _MyAppState extends State<MyApp> {
                 questionIndex: _questionIndex,
                 questions: _questions,
               )
-            : Result(),
+            : const Result(),
       ),
     );
   }
